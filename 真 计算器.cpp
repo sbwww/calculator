@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#define MAXBUFFER 20			//×î³¤µÄÊı×Ö£¬°üÀ¨Ğ¡ÊıÎ» 
+#define MAXBUFFER 20			//æœ€é•¿çš„æ•°å­—ï¼ŒåŒ…æ‹¬å°æ•°ä½ 
 
 using namespace std;
 
@@ -9,62 +9,62 @@ string in_to_post(string s)
 	stack<char> sign;
 	for(size_t i=0;i<s.length();++i){
 		while(isdigit(s[i])||s[i]=='.'){
-            post_s.push_back(s[i]);
+        		post_s.push_back(s[i]);
 			++i;
-            if(!isdigit(s[i])&&s[i]!='.'){
-           		post_s.push_back(' ');
-				break;
-            }
-        }							
+            		if(!isdigit(s[i])&&s[i]!='.'){
+           			post_s.push_back(' ');
+					break;
+		        }
+        	}							
         
 		if(sign.empty()){
 			sign.push(s[i]);
 		}else{
 			switch(s[i]){
-			case '+':
-			case '-':
-				while(!sign.empty()&&sign.top()!='('){
-					post_s.push_back(sign.top());
-					post_s.push_back(' ');
+				case '+':
+				case '-':
+					while(!sign.empty()&&sign.top()!='('){
+						post_s.push_back(sign.top());
+						post_s.push_back(' ');
+						sign.pop();
+					}
+					sign.push(s[i]);
+					break;
+
+				case '*':
+				case '/':
+					if(sign.top()=='*'||sign.top()=='/'||sign.top()=='^'){
+						post_s.push_back(sign.top());
+						post_s.push_back(' ');
+						sign.pop();
+					}
+					sign.push(s[i]);
+					break;
+
+				case '^':
+					if(sign.top()=='^'){
+						post_s.push_back(sign.top());
+						post_s.push_back(' ');
+						sign.pop();
+					}
+					sign.push(s[i]);
+					break;		
+
+				case '(':
+					sign.push(s[i]);
+					break;
+
+				case ')':
+					while (sign.top()!='('&&!sign.empty()){
+						post_s.push_back(sign.top());
+						post_s.push_back(' ');
+						sign.pop();
+					}
 					sign.pop();
-				}
-				sign.push(s[i]);
-				break;
+					break; 
 				
-			case '*':
-			case '/':
-				if(sign.top()=='*'||sign.top()=='/'||sign.top()=='^'){
-					post_s.push_back(sign.top());
-					post_s.push_back(' ');
-					sign.pop();
-				}
-				sign.push(s[i]);
-				break;
-				
-			case '^':
-				if(sign.top()=='^'){
-					post_s.push_back(sign.top());
-					post_s.push_back(' ');
-					sign.pop();
-				}
-				sign.push(s[i]);
-				break;		
-		
-			case '(':
-				sign.push(s[i]);
-				break;
-				
-			case ')':
-				while (sign.top()!='('&&!sign.empty()){
-					post_s.push_back(sign.top());
-					post_s.push_back(' ');
-					sign.pop();
-				}
-				sign.pop();
-				break; 
-				
-			default :
-				break;
+				default :
+					break;
 			}
 		}
 	}
@@ -76,7 +76,7 @@ string in_to_post(string s)
 	return post_s;
 }
 
-bool flag_0=true;
+bool flag_0=true;	//æ£€æŸ¥åˆ†æ¯æ˜¯å¦ä¸º0
 
 double post_math(string s)
 {
@@ -91,24 +91,25 @@ double post_math(string s)
 		}
 		bool flag=false;
 		while(isdigit(s[i])||s[i]=='.'){
-            num[k++]=s[i];
-            num[k]='\0';
-            if(k>=MAXBUFFER){
-                printf("error");
-                return -1;
-            }
+			num[k++]=s[i];
+            		num[k]='\0';
+		 	if(k>=MAXBUFFER){
+				printf("error");
+				return -1;
+			}
 			++i;
-            if(s[i]==' '){
-                d=atof(num);
-                result.push(d);
-                k=0;
-                flag=true;
-                break;
-            }
-        }							//°ÑÊı×Ö´æµ½num[]ÖĞ£¬ÓÃatof°Ñnum×ª³É¸¡µãÊı´æÈëd 
+            		if(s[i]==' '){
+               	 		d=atof(num);
+                		result.push(d);
+                		k=0;
+                		flag=true;
+               	 		break;
+            		}
+       	 	}							//æŠŠæ•°å­—å­˜åˆ°num[]ä¸­ï¼Œç”¨atofæŠŠnumè½¬æˆæµ®ç‚¹æ•°å­˜å…¥d 
 		if(flag){
 			continue;
 		}
+		
 		temp1=result.top();
 		result.pop();
 		temp2=result.top();
@@ -146,13 +147,13 @@ double post_math(string s)
 
 void input_check()
 {
-	cout<<"ÇëÈ·±£Ê¹ÓÃÓ¢ÎÄÊäÈë·¨£¬ÊäÈë ( ²¢»Ø³µ À´¼ìÑé"<<endl;
+	cout<<"è¯·ç¡®ä¿ä½¿ç”¨è‹±æ–‡è¾“å…¥æ³•ï¼Œè¾“å…¥ ( å¹¶å›è½¦ æ¥æ£€éªŒ"<<endl;
 	while(getchar()!='('){
-		cout<<"Çë¸ÄÎªÓ¢ÎÄÊäÈë·¨"<<endl;
+		cout<<"è¯·æ”¹ä¸ºè‹±æ–‡è¾“å…¥æ³•"<<endl;
 		getchar();
 		getchar();
 	}
-	cout<<"ÊäÈë·¨ÕıÈ·"<<endl;
+	cout<<"è¾“å…¥æ³•æ­£ç¡®"<<endl;
 }
 
 bool check_sign(string s)
@@ -181,21 +182,21 @@ int main()
 	double result;
 	input_check();
 	for(;;){
-		cout<<"½ÓÏÂÀ´¿ÉÒÔÊäÈëĞèÒª¼ÆËãµÄ±í´ïÊ½"<<endl;
+		cout<<"æ¥ä¸‹æ¥å¯ä»¥è¾“å…¥éœ€è¦è®¡ç®—çš„è¡¨è¾¾å¼"<<endl;
 		cin>>a;
 		if(!check_sign(a)){
 			cout<<"None"<<endl;
 			continue;
 		}
 		post_s=in_to_post(a);
-		cout<<"ºó×º±í´ïÊ½Îª:"<<endl;
+		cout<<"åç¼€è¡¨è¾¾å¼ä¸º:"<<endl;
 		cout<<post_s<<endl;
 		result=post_math(post_s);
 		if(!flag_0){
 			cout<<endl;
 			continue;
 		}
-		cout<<"½á¹ûÎª:"<<endl;
+		cout<<"ç»“æœä¸º:"<<endl;
 		cout<<result<<endl<<endl;
 	}
 	return 0;
