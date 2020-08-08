@@ -1,0 +1,10 @@
+C:\Users\SBW\Desktop\作业\c_sharp\WinFormApps\Calculator_CSharp\Calculator_CSharp\bin\Release\Calculator_CSharp.exe.config
+C:\Users\SBW\Desktop\作业\c_sharp\WinFormApps\Calculator_CSharp\Calculator_CSharp\bin\Release\Calculator_CSharp.exe
+C:\Users\SBW\Desktop\作业\c_sharp\WinFormApps\Calculator_CSharp\Calculator_CSharp\bin\Release\Calculator_CSharp.pdb
+C:\Users\SBW\Desktop\作业\c_sharp\WinFormApps\Calculator_CSharp\Calculator_CSharp\obj\Release\Calculator_CSharp.csprojAssemblyReference.cache
+C:\Users\SBW\Desktop\作业\c_sharp\WinFormApps\Calculator_CSharp\Calculator_CSharp\obj\Release\Calculator_CSharp.MainForm.resources
+C:\Users\SBW\Desktop\作业\c_sharp\WinFormApps\Calculator_CSharp\Calculator_CSharp\obj\Release\Calculator_CSharp.Properties.Resources.resources
+C:\Users\SBW\Desktop\作业\c_sharp\WinFormApps\Calculator_CSharp\Calculator_CSharp\obj\Release\Calculator_CSharp.csproj.GenerateResource.cache
+C:\Users\SBW\Desktop\作业\c_sharp\WinFormApps\Calculator_CSharp\Calculator_CSharp\obj\Release\Calculator_CSharp.csproj.CoreCompileInputs.cache
+C:\Users\SBW\Desktop\作业\c_sharp\WinFormApps\Calculator_CSharp\Calculator_CSharp\obj\Release\Calculator_CSharp.exe
+C:\Users\SBW\Desktop\作业\c_sharp\WinFormApps\Calculator_CSharp\Calculator_CSharp\obj\Release\Calculator_CSharp.pdb
